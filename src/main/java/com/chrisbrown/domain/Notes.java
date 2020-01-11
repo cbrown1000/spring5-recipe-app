@@ -1,10 +1,12 @@
 package com.chrisbrown.domain;
 
+import javax.persistence.CascadeType;
 import javax.persistence.Entity;
 import javax.persistence.GeneratedValue;
 import javax.persistence.GenerationType;
 import javax.persistence.Id;
 import javax.persistence.Lob;
+import javax.persistence.OneToOne;
 
 @Entity
 public class Notes {
@@ -12,6 +14,8 @@ public class Notes {
 	@Id
 	@GeneratedValue(strategy = GenerationType.IDENTITY)
 	private Long id;
+	
+	@OneToOne(cascade = CascadeType.ALL)
 	private Recipe recipe;
 	
 	@Lob
